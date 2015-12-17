@@ -1,0 +1,22 @@
+{
+ "content": null, 
+ "creation": "2015-12-17 16:52:42.222882", 
+ "docstatus": 0, 
+ "doctype": "Page", 
+ "idx": 0, 
+ "modified": "2015-12-17 16:52:42.222882", 
+ "modified_by": "Administrator", 
+ "module": "Testing App", 
+ "name": "zpl_print-1", 
+ "owner": "Administrator", 
+ "page_name": "zpl_print", 
+ "roles": [
+  {
+   "role": "All"
+  }
+ ], 
+ "script": null, 
+ "standard": "Yes", 
+ "style": null, 
+ "title": "ZPL Print"
+}
