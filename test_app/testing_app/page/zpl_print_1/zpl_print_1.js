@@ -510,9 +510,9 @@ function printZPL() {
     window['qzDoneAppending'] = function() {
     	console.log("hiiiii")
         // Append the rest of our commands
-        // qz.append('^FS\n');
+        qz.append('^XA^FO50,100^BXN,10,200^FDYourTextHere^FS^XZ');
         // qz.append('^XZ\n');
-        qz.append('/assets/test_app/zpl/sample_zpl.txt')
+        // qz.append('/assets/test_app/zpl/sample_zpl.txt')
         // Tell the apple to print.
         qz.print();
 
