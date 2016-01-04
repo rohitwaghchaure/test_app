@@ -13,6 +13,12 @@ def get_data():
 					"label": _("Print ZPL"),
 					"description": _("Print ZPL."),
 				},
+				{
+					"type": "doctype",
+					"name": "Test Doctype",
+					"label": _("Test"),
+					"description": _("Test."),
+				},
 			]
 		},
 	]
