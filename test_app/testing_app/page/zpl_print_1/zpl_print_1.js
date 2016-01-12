@@ -37,7 +37,12 @@ page.main.css({
 	page.print_zpl = wrapper.page.add_field({fieldname: "print_zpl", fieldtype: "Button",
 		label: __("Print ZPL")}).$input.
 		click(function(){
-			printZPL()
+            frappe.call({
+                method: 'test_app.testing_app.test_zpl.get_zpl',
+                callback: function(r){
+                   printZPL(r.message)
+                }
+            })
 	});
 }
 
@@ -496,21 +501,21 @@ function printESCP() {
  *    qz.append('^XA\n^FO50,50^ADN,36,20^FDHello World!\n^FS\n^XZ\n');
  *    qz.print();
  ***************************************************************************/
-function printZPL() {
+function printZPL(zpl) {
     if (notReady()) { return; }
 
     // Send characters/raw commands to qz using "append"
     // This example is for ZPL.  Please adapt to your printer language
     // Hint:  Carriage Return = \r, New Line = \n, Escape Double Quotes= \"
-    qz.append('^XA\n');
-    qz.append('^FO50,50^ADN,36,20^FDPRINTED USING QZ PRINT PLUGIN ' + qz.getVersion() + '\n');
+    // qz.append('^XA\n');
+    // qz.append('^FO50,50^ADN,36,20^FDPRINTED USING QZ PRINT PLUGIN ' + qz.getVersion() + '\n');
     qz.appendImage(getPath() + '/assets/test_app/images/image_sample_bw.png', 'ZPLII');
 
     // Automatically gets called when "qz.appendImage()" is finished.
     window['qzDoneAppending'] = function() {
-    	console.log("hiiiii")
+    	// console.log("hiiiii")
         // Append the rest of our commands
-        qz.append('^XA^FO50,100^BXN,10,200^FDYourTextHere^FS^XZ');
+        qz.append(zpl);
         // qz.append('^XZ\n');
         // qz.append('/assets/test_app/zpl/sample_zpl.txt')
         // Tell the apple to print.
